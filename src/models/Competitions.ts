@@ -5,9 +5,9 @@ interface CompetitionAttributes {
   id: number;
   title: string;
   content: string[];
-  date: Date;
+  startDate: string;
   location: string;
-  imageUrls?: string[];
+  images?: string[];
   createdAt?: Date;
   updatedAt?: Date;
 }
@@ -19,9 +19,9 @@ class Competition
   public id!: number;
   public title!: string;
   public content!: string[];
-  public date!: Date;
+  public startDate!: string;
   public location!: string;
-  public imageUrls?: string[];
+  public images?: string[];
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
 }
@@ -38,15 +38,15 @@ Competition.init(
       allowNull: false,
     },
     content: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: true },
-    date: {
-      type: DataTypes.DATE,
+    startDate: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
     location: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    imageUrls: {
+    images: {
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: true,
     },

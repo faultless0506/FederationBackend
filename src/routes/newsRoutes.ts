@@ -3,7 +3,6 @@ import {
   getAllNews, 
   getNewsById,
 } from '../controllers/newsController';
-import { newsImageUpload } from '../config/multerConfig';
 
 const router = Router();
 

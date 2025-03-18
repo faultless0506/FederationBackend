@@ -13,12 +13,17 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:5173', 
+  methods: 'GET,POST,PUT,DELETE',
+  allowedHeaders: 'Content-Type,Authorization',
+  // credentials: true, 
+}));
+
 app.use(express.json());
 
 // Статические маршруты для доступа к загруженным файлам
-app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
+app.use('/public', express.static('public'));
 
 // Маршруты API
 app.use('/api/news', newsRoutes);

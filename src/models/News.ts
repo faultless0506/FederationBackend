@@ -5,7 +5,7 @@ interface NewsAttributes {
   id: number;
   title: string;
   content: string;
-  imageUrls?: string[];
+  images?: string[];
   createdAt?: Date;
   updatedAt?: Date;
 }
@@ -14,7 +14,7 @@ class News extends Model<NewsAttributes> implements NewsAttributes {
   public id!: number;
   public title!: string;
   public content!: string;
-  public imageUrls?: string[];
+  public images?: string[];
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
 }
@@ -31,10 +31,10 @@ News.init(
       allowNull: false,
     },
     content: {
-      type: DataTypes.TEXT,
+      type: DataTypes.ARRAY(DataTypes.TEXT),
       allowNull: false,
     },
-    imageUrls: {
+    images: {
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: true,
     },

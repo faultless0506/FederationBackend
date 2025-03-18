@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("News", {
+    await queryInterface.createTable("Competitions", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -14,11 +14,19 @@ module.exports = {
         allowNull: false,
       },
       content: {
-        type: Sequelize.ARRAY(Sequelize.TEXT),
+        type: Sequelize.ARRAY(Sequelize.STRING),
         allowNull: false,
       },
       images: {
         type: Sequelize.ARRAY(Sequelize.STRING),
+      },
+      location: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      startDate: {
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,
@@ -32,6 +40,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("News");
+    await queryInterface.dropTable("Competitions");
   },
 };
