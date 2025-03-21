@@ -11,7 +11,7 @@ const router = Router();
 router.get('/', getAllDocuments);
 
 // GET /api/documents/category/:category - получить документы по категории
-router.get('/:category', getDocumentsByCategory);
+router.get('/category/:category', getDocumentsByCategory);
 
 // GET /api/documents/:id - получить документ по ID
 router.get('/:id', getDocumentById);

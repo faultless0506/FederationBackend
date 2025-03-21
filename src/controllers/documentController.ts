@@ -29,7 +29,7 @@ export const getDocumentById = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const document = await Document.findByPk(id);
-    
+    console.log('Document:', document);
     if (!document) {
       return res.status(404).json({ message: 'Document not found' });
     }

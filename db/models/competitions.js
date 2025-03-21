@@ -5,6 +5,10 @@ module.exports = (sequelize, DataTypes) => {
         startDate: DataTypes.STRING,
         location: DataTypes.STRING,
         images: DataTypes.ARRAY(DataTypes.STRING),
+        resultsId: {
+            type: DataTypes.INTEGER, 
+            allowNull: true
+          },
         createdAt: DataTypes.DATE,
         updatedAt: DataTypes.DATE
     });

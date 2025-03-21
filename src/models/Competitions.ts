@@ -8,6 +8,7 @@ interface CompetitionAttributes {
   startDate: string;
   location: string;
   images?: string[];
+  resultsId?: number;
   createdAt?: Date;
   updatedAt?: Date;
 }
@@ -22,6 +23,7 @@ class Competition
   public startDate!: string;
   public location!: string;
   public images?: string[];
+  public resultsId?: number;
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
 }
@@ -50,6 +52,7 @@ Competition.init(
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: true,
     },
+    resultsId: { type: DataTypes.INTEGER, allowNull: true },
   },
   {
     sequelize,
